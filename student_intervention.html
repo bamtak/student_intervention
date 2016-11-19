@@ -11801,7 +11801,7 @@ Identifying student who might need early intervention before they fail to gradua
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[218]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries</span>
@@ -11854,14 +11854,14 @@ Identifying student who might need early intervention before they fail to gradua
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Calculate number of students</span>
 <span class="n">n_students</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="p">)</span>
 
 <span class="c1"># TODO: Calculate number of features</span>
-<span class="n">n_features</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">n_features</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
 <span class="c1"># TODO: Calculate passing students</span>
 <span class="n">n_passed</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="p">[(</span><span class="n">student_data</span><span class="p">[</span><span class="s1">&#39;passed&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;yes&#39;</span><span class="p">)])</span>
@@ -11891,7 +11891,7 @@ Identifying student who might need early intervention before they fail to gradua
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Total number of students: 395
-Number of features: 31
+Number of features: 30
 Number of students who passed: 265
 Number of students who failed: 130
 Graduation rate of the class: 67.09%
@@ -11917,7 +11917,7 @@ Graduation rate of the class: 67.09%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Extract feature columns</span>
@@ -11999,7 +11999,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">preprocess_features</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
@@ -12070,7 +12070,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[80]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import any additional functionality you may need here</span>
@@ -12083,7 +12083,7 @@ Feature values:
 <span class="n">num_test</span> <span class="o">=</span> <span class="n">X_all</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">num_train</span>
 
 <span class="c1"># TODO: Shuffle and split the dataset into the number of training and testing points above</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">,</span>  <span class="n">test_size</span><span class="o">=</span><span class="n">num_test</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">,</span>  <span class="n">test_size</span><span class="o">=</span><span class="n">num_test</span><span class="p">,</span><span class="n">stratify</span><span class="o">=</span><span class="n">y_all</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
 <span class="c1"># Show the results of the split</span>
 <span class="k">print</span> <span class="s2">&quot;Training set has {} samples.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -12244,7 +12244,7 @@ Testing set has 95 samples.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">train_classifier</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">):</span>
@@ -12317,7 +12317,7 @@ Testing set has 95 samples.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[184]:</div>
+<div class="prompt input_prompt">In&nbsp;[96]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import the three supervised learning models from sklearn</span>
@@ -12334,8 +12334,8 @@ Testing set has 95 samples.
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
 
 <span class="c1"># TODO: Initialize the three models</span>
-<span class="n">clf_A</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">()</span>
-<span class="n">clf_B</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">clf_A</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">clf_B</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 <span class="n">clf_C</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 
 
@@ -12362,6 +12362,7 @@ Testing set has 95 samples.
 <span class="n">train_predict</span><span class="p">(</span><span class="n">clf_C</span><span class="p">,</span><span class="n">X_train_200</span><span class="p">,</span><span class="n">y_train_200</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 <span class="n">train_predict</span><span class="p">(</span><span class="n">clf_C</span><span class="p">,</span><span class="n">X_train_300</span><span class="p">,</span><span class="n">y_train_300</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 
+
 <span class="c1"># TODO: Execute the &#39;train_predict&#39; function for each classifier and each training set size</span>
 <span class="c1"># train_predict(clf, X_train, y_train, X_test, y_test)</span>
 </pre></div>
@@ -12379,57 +12380,57 @@ Testing set has 95 samples.
 <pre>Training a SVC using a training set size of 100. . .
 Trained model in 0.0030 seconds
 Made predictions in 0.0010 seconds.
-F1 score for training set: 0.8777.
+F1 score for training set: 0.8354.
 Made predictions in 0.0010 seconds.
-F1 score for test set: 0.7746.
+F1 score for test set: 0.8025.
 Training a SVC using a training set size of 200. . .
-Trained model in 0.0060 seconds
-Made predictions in 0.0030 seconds.
-F1 score for training set: 0.8679.
-Made predictions in 0.0020 seconds.
-F1 score for test set: 0.7815.
-Training a SVC using a training set size of 300. . .
-Trained model in 0.0090 seconds
-Made predictions in 0.0070 seconds.
-F1 score for training set: 0.8761.
-Made predictions in 0.0030 seconds.
-F1 score for test set: 0.7838.
-Training a LogisticRegression using a training set size of 100. . .
-Trained model in 0.0020 seconds
-Made predictions in 0.0010 seconds.
-F1 score for training set: 0.8593.
-Made predictions in 0.0010 seconds.
-F1 score for test set: 0.7647.
-Training a LogisticRegression using a training set size of 200. . .
-Trained model in 0.0040 seconds
-Made predictions in 0.0010 seconds.
-F1 score for training set: 0.8562.
-Made predictions in 0.0000 seconds.
-F1 score for test set: 0.7914.
-Training a LogisticRegression using a training set size of 300. . .
 Trained model in 0.0050 seconds
-Made predictions in 0.0010 seconds.
-F1 score for training set: 0.8468.
-Made predictions in 0.0000 seconds.
-F1 score for test set: 0.8060.
-Training a KNeighborsClassifier using a training set size of 100. . .
-Trained model in 0.0020 seconds
-Made predictions in 0.0040 seconds.
-F1 score for training set: 0.8060.
-Made predictions in 0.0040 seconds.
-F1 score for test set: 0.7246.
-Training a KNeighborsClassifier using a training set size of 200. . .
-Trained model in 0.0020 seconds
-Made predictions in 0.0050 seconds.
-F1 score for training set: 0.8800.
 Made predictions in 0.0030 seconds.
-F1 score for test set: 0.7692.
+F1 score for training set: 0.8431.
+Made predictions in 0.0020 seconds.
+F1 score for test set: 0.8105.
+Training a SVC using a training set size of 300. . .
+Trained model in 0.0080 seconds
+Made predictions in 0.0060 seconds.
+F1 score for training set: 0.8664.
+Made predictions in 0.0020 seconds.
+F1 score for test set: 0.8052.
+Training a LogisticRegression using a training set size of 100. . .
+Trained model in 0.0010 seconds
+Made predictions in 0.0010 seconds.
+F1 score for training set: 0.8671.
+Made predictions in 0.0010 seconds.
+F1 score for test set: 0.7068.
+Training a LogisticRegression using a training set size of 200. . .
+Trained model in 0.0020 seconds
+Made predictions in 0.0000 seconds.
+F1 score for training set: 0.8211.
+Made predictions in 0.0000 seconds.
+F1 score for test set: 0.7391.
+Training a LogisticRegression using a training set size of 300. . .
+Trained model in 0.0040 seconds
+Made predictions in 0.0000 seconds.
+F1 score for training set: 0.8512.
+Made predictions in 0.0010 seconds.
+F1 score for test set: 0.7500.
+Training a KNeighborsClassifier using a training set size of 100. . .
+Trained model in 0.0000 seconds
+Made predictions in 0.0020 seconds.
+F1 score for training set: 0.8252.
+Made predictions in 0.0020 seconds.
+F1 score for test set: 0.7586.
+Training a KNeighborsClassifier using a training set size of 200. . .
+Trained model in 0.0010 seconds
+Made predictions in 0.0050 seconds.
+F1 score for training set: 0.8097.
+Made predictions in 0.0030 seconds.
+F1 score for test set: 0.7857.
 Training a KNeighborsClassifier using a training set size of 300. . .
 Trained model in 0.0010 seconds
-Made predictions in 0.0130 seconds.
-F1 score for training set: 0.8809.
+Made predictions in 0.0090 seconds.
+F1 score for training set: 0.8539.
 Made predictions in 0.0040 seconds.
-F1 score for test set: 0.7801.
+F1 score for test set: 0.8138.
 </pre>
 </div>
 </div>
@@ -12468,22 +12469,22 @@ F1 score for test set: 0.7801.
 <td style="text-align:center">100</td>
 <td style="text-align:center">0.0030</td>
 <td style="text-align:center">0.0010</td>
-<td style="text-align:center">0.8777</td>
-<td style="text-align:center">0.7746</td>
+<td style="text-align:center">0.8354</td>
+<td style="text-align:center">0.8025</td>
 </tr>
 <tr>
 <td style="text-align:center">200</td>
-<td style="text-align:center">0.0060</td>
+<td style="text-align:center">0.0050</td>
 <td style="text-align:center">0.0020</td>
-<td style="text-align:center">0.8679</td>
-<td style="text-align:center">0.7815</td>
+<td style="text-align:center">0.8431</td>
+<td style="text-align:center">0.8105</td>
 </tr>
 <tr>
 <td style="text-align:center">300</td>
-<td style="text-align:center">0.0090</td>
-<td style="text-align:center">0.0030</td>
-<td style="text-align:center">0.8761</td>
-<td style="text-align:center">0.7838</td>
+<td style="text-align:center">0.0080</td>
+<td style="text-align:center">0.0020</td>
+<td style="text-align:center">0.8664</td>
+<td style="text-align:center">0.8052</td>
 </tr>
 </tbody>
 </table>
@@ -12500,24 +12501,24 @@ F1 score for test set: 0.7801.
 <tbody>
 <tr>
 <td style="text-align:center">100</td>
-<td style="text-align:center">0.0020</td>
 <td style="text-align:center">0.0010</td>
-<td style="text-align:center">0.8593</td>
-<td style="text-align:center">0.7647</td>
+<td style="text-align:center">0.0010</td>
+<td style="text-align:center">0.8671</td>
+<td style="text-align:center">0.7068</td>
 </tr>
 <tr>
 <td style="text-align:center">200</td>
-<td style="text-align:center">0.0040</td>
+<td style="text-align:center">0.0020</td>
 <td style="text-align:center">0.0000</td>
-<td style="text-align:center">0.8562</td>
-<td style="text-align:center">0.7914</td>
+<td style="text-align:center">0.8211</td>
+<td style="text-align:center">0.7391</td>
 </tr>
 <tr>
 <td style="text-align:center">300</td>
-<td style="text-align:center">0.0050</td>
+<td style="text-align:center">0.0040</td>
 <td style="text-align:center">0.0010</td>
-<td style="text-align:center">0.8468</td>
-<td style="text-align:center">0.8060</td>
+<td style="text-align:center">0.8512</td>
+<td style="text-align:center">0.7500</td>
 </tr>
 </tbody>
 </table>
@@ -12534,24 +12535,24 @@ F1 score for test set: 0.7801.
 <tbody>
 <tr>
 <td style="text-align:center">100</td>
+<td style="text-align:center">0.0000</td>
 <td style="text-align:center">0.0020</td>
-<td style="text-align:center">0.0040</td>
-<td style="text-align:center">0.8060</td>
-<td style="text-align:center">0.7246</td>
+<td style="text-align:center">0.8252</td>
+<td style="text-align:center">0.7586</td>
 </tr>
 <tr>
 <td style="text-align:center">200</td>
-<td style="text-align:center">0.0020</td>
+<td style="text-align:center">0.0010</td>
 <td style="text-align:center">0.0030</td>
-<td style="text-align:center">0.8800</td>
-<td style="text-align:center">0.7692</td>
+<td style="text-align:center">0.8097</td>
+<td style="text-align:center">0.7857</td>
 </tr>
 <tr>
 <td style="text-align:center">300</td>
 <td style="text-align:center">0.0010</td>
 <td style="text-align:center">0.0040</td>
-<td style="text-align:center">0.8809</td>
-<td style="text-align:center">0.7801</td>
+<td style="text-align:center">0.8539</td>
+<td style="text-align:center">0.8138</td>
 </tr>
 </tbody>
 </table>
@@ -12584,7 +12585,7 @@ F1 score for test set: 0.7801.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> Based on the experiment I will choose Logistic Regresion as the best model for the problem. Logistic regression  is simple and the most effient of all the models (SVM &amp; KNN) considered for the problem, with efficacy of 80.6%,also, the prediction time and the training time is very small. In fact, it has the highest response rate in prediction compare to others. Because of it computational effieciency, it is cost effective.</p>
+<p><strong>Answer: </strong> Based on the experiment I will choose K Nearest Neighbors as the best model for the problem. K Nearest Neighbor is the most effient of all the models (SVM &amp; Logistic Regression) considered for the problem, with efficacy of 81.38%,also, the prediction time and the training time is very small. Although, the prediction time is a bit high compare to others because all computation is deferred until classification and hypothesis complexity can grow with the data, but based on the size of the student records, it computation cost as much as others.</p>
 
 </div>
 </div>
@@ -12604,8 +12605,8 @@ F1 score for test set: 0.7801.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> Logistic Regression:
-This is regression model used for classification problem, it measures the relationship between output variable (whose value depends on input variables) and one or more input variables by estimating the probabilities (of the cumulative logistic distribution) using a function that map a countinous value to a value between 0 and 1. To achieve this, the model is supplied data containing both the input features and correct output, from which it learned a mathematical relationship that exist between the inputs and the output, this is called model training. After which, the model is supplied only the features and it is expected to predict the output based on the previous knowlegde (mathematical relationship) learned during training.e.g In the case of student intervention, the model is supplied records of students that pass their high school final exam and those that fail (which is the output), along with the factors that are expected to contribute to this (which are the inputs). The model used this records to learned the relatioship between the factors and student passing or failing in final exam and build a mathematical relationship that exist between them. This knowledge is use in predicting if a new student will fail or pass final exam, when the factors are given to the model.</p>
+<p><strong>Answer: </strong> K Nearest Neighbors:
+This is a model used for both classification and regression problem. In classification, An object is classified by a majority vote of its neighbors, with the object being assigned to the class most common among its k nearest neighbors, whereas in regression, the output value is the average of the values of its k nearest neighbors. When the model is supplied data containing both the input features and correct output, this are stored in the memory for future use and whenever the model is supplied a new data that has no class (label), it will select k neighbors from the training dataset ( using a certain distance metric e.g manhattan distance ) that have features that are close to the features of the new data and the new data is assigned the class most common among its k nearest neighbors.</p>
 
 </div>
 </div>
@@ -12636,7 +12637,7 @@ This is regression model used for classification problem, it measures the relati
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[217]:</div>
+<div class="prompt input_prompt">In&nbsp;[128]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import &#39;GridSearchCV&#39; and &#39;make_scorer&#39;</span>
@@ -12644,10 +12645,16 @@ This is regression model used for classification problem, it measures the relati
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">make_scorer</span>
 
 <span class="c1"># TODO: Create the parameters list you wish to tune</span>
-<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;C&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">1000</span><span class="p">]}</span>
+<span class="c1">#parameters = {&#39;p&#39;:[1],&#39;n_neighbors&#39;:[2,3,5]}</span>
+
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n_neighbors&#39;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
+              <span class="s1">&#39;metric&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;minkowski&#39;</span><span class="p">,</span> <span class="s1">&#39;manhattan&#39;</span><span class="p">],</span> 
+              <span class="s1">&#39;weights&#39;</span><span class="p">:[</span><span class="s2">&quot;uniform&quot;</span><span class="p">,</span> <span class="s2">&quot;distance&quot;</span><span class="p">],</span>
+              <span class="s1">&#39;p&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">]</span>
+             <span class="p">}</span>
 
 <span class="c1"># TODO: Initialize the classifier</span>
-<span class="n">clf</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">()</span>
 
 <span class="c1"># TODO: Make an f1 scoring function using &#39;make_scorer&#39; </span>
 <span class="n">f1_scorer</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">f1_score</span><span class="p">,</span><span class="n">pos_label</span><span class="o">=</span><span class="s1">&#39;yes&#39;</span><span class="p">)</span>
@@ -12660,7 +12667,6 @@ This is regression model used for classification problem, it measures the relati
 
 <span class="c1"># Get the estimator</span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">grid_obj</span><span class="o">.</span><span class="n">best_estimator_</span>
-
 
 <span class="c1"># Report the final F1 score for training and testing after parameter tuning</span>
 <span class="k">print</span> <span class="s2">&quot;Tuned model has a training F1 score of {:.4f}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">predict_labels</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
@@ -12677,10 +12683,10 @@ This is regression model used for classification problem, it measures the relati
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Made predictions in 0.0000 seconds.
-Tuned model has a training F1 score of 0.8468.
-Made predictions in 0.0000 seconds.
-Tuned model has a testing F1 score of 0.8060.
+<pre>Made predictions in 0.0080 seconds.
+Tuned model has a training F1 score of 0.8397.
+Made predictions in 0.0040 seconds.
+Tuned model has a testing F1 score of 0.8451.
 </pre>
 </div>
 </div>
@@ -12705,10 +12711,10 @@ Tuned model has a testing F1 score of 0.8060.
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong> The final F1 score for:
-                Training is 0.8468
-                Testting is 0.8060
-             After experimenting with different parameter tuning the final training and testing are still the same with the
-             untuned model. Also, I realised that if parameters are wrongly tunned it can reduce the effieciency of the
+                Training is 0.8397
+                Testting is 0.8451
+             After experimenting with different parameter tuning, I was able to increase the testing F1 score from 81.38% to 
+             84.51%. Also, I realised that if parameters are wrongly tunned it can reduce the effieciency of the
              model.</p>
 
 </div>
